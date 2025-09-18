@@ -11,6 +11,7 @@ const formRoutes = require('./routes/forms');
 const workflowRoutes = require('./routes/workflow');
 const appRoutes = require('./routes/apps');
 const pdfRoutes = require('./routes/pdf');
+const submissionRoutes = require('./routes/submissions');
 
 const aiAgent = require('./ai-agent/core');
 const { rateLimitMiddleware } = require('./middleware/rateLimiter');
@@ -56,6 +57,7 @@ class AIWebAppBuilder {
         this.app.use('/api/workflow', workflowRoutes);
         this.app.use('/api/apps', appRoutes);
         this.app.use('/api/pdf', pdfRoutes);
+        this.app.use('/api/submissions', submissionRoutes);
 
         // AI Agent endpoint
         this.app.post('/api/ai/analyze', async (req, res) => {
